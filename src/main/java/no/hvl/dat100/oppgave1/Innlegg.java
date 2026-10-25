@@ -68,7 +68,7 @@ public abstract class Innlegg {
 	
 	@Override
 	public String toString() {
-		String output = id + "\n " + bruker + "\n " + dato + "\n " + likes;
+		String output = id + "\n" + bruker + "\n" + dato + "\n" + likes + "\n";
 		return output;
 	}
 	

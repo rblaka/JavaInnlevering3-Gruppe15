@@ -8,13 +8,12 @@ public class Blogg {
 	private int nesteledig;
 
 	public Blogg() {
-		innleggtabell = new Innlegg[20];
-		nesteledig = 20;
+		this.innleggtabell = new Innlegg[20];
 	}
 
 	public Blogg(int lengde) {
-		innleggtabell = new Innlegg[lengde];
-		nesteledig = lengde;
+		this.innleggtabell = new Innlegg[lengde];
+
 	}
 
 	public int getAntall() {
@@ -46,7 +45,7 @@ public class Blogg {
 	}
 
 	public boolean ledigPlass() {
-		if(nesteledig < innleggtabell.length){
+		if(nesteledig < innleggtabell.length && innleggtabell.length > 0){
 			return true;
 		}
 		else{
@@ -56,7 +55,7 @@ public class Blogg {
 	
 	public boolean leggTil(Innlegg innlegg) {
 		if(ledigPlass()){
-			innleggtabell[nesteledig-1] = innlegg;
+			innleggtabell[nesteledig] = innlegg;
 			nesteledig++;
 			return true;
 		}
@@ -69,7 +68,7 @@ public class Blogg {
 		String output = nesteledig + "\n";
 		int i = 0;
 		while(i < nesteledig && nesteledig != 0){
-			output += innleggtabell[i].toString() + "\n";
+			output += innleggtabell[i].toString();
 			i++;
 		}
 		return output;
