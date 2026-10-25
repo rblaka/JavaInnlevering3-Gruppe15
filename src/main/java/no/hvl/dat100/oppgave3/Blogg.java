@@ -75,20 +75,45 @@ public class Blogg {
 	}
 
 	// valgfrie oppgaver nedenfor
-	
 	public void utvid() {
-		throw new UnsupportedOperationException(TODO.method());
+		int utvid = innleggtabell.length * 2;
+		Innlegg[] midlertidig = new Innlegg[utvid];
+		int i = 0;
+		while(i < nesteledig){
+			midlertidig[i] = innleggtabell[i];
+			innleggtabell[i] = null;
+			i++;
+		}
+		innleggtabell = midlertidig;
 	}
 	
 	public boolean leggTilUtvid(Innlegg innlegg) {
-
-		throw new UnsupportedOperationException(TODO.method());
-		
+		if(finnes(innlegg)){
+			if(leggTil(innlegg)){
+				return true;
+			}
+			else{
+				utvid();
+				leggTil(innlegg);
+				return true;
+			}
+		}
+		else{
+			return false;
+		}
 	}
 	
 	public boolean slett(Innlegg innlegg) {
-		
-		throw new UnsupportedOperationException(TODO.method());
+		int index = finnInnlegg(innlegg);
+		if(index != -1){
+			innleggtabell[index] = innleggtabell[nesteledig-1];
+			innleggtabell[nesteledig-1] = null;
+			nesteledig--;
+			return true;
+		}
+		else{
+			return false;
+		}
 	}
 	
 	public int[] search(String keyword) {

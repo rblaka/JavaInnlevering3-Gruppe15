@@ -124,6 +124,5 @@ public class TestBlogg {
 				"BILDE\n2\nOline Olsen\n24-10\n0\net bilde\nhttp://www.picture.com/oo.jpg\n";
 		
 		assertEquals(str,samling.toString());
-		
 	}
 }
